@@ -19,6 +19,7 @@ exec --no-startup-id pasystray
 exec --no-startup-id blueman-applet
 exec --no-startup-id pipewire
 exec --no-startup-id wireplumber
+exec --no-startup-id feh --bg-fill ~/.config/i3/wallpapers/nurixbg.png
 
 # main thing
 
@@ -49,8 +50,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # scrot
-bindsym --release $mod+s exec "scrot -s"
-
+bindsym --release $mod+s exec scrot -s -z -o -f -F "$HOME/Pictures/$(date).png" -e 'xclip -selection clipboard -t image/png -i $f'
 # kill focused window
 bindsym $mod+Shift+q kill
 
